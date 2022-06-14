@@ -16,12 +16,8 @@ class Dog():
         return {"id": self.id, "name": self.name, "breed":self.breed, "birthdate":self.birthdate, "father": self.father if self.father > 0 else "", "mother": self.mother if self.mother > 0 else ""}
              
         
+dogs = []
 
-class DogRepository():
-    dogs = []
-
-    def add_new_dog(self,dog):
-        self.dogs.append(dog)
-
+    
 
 
