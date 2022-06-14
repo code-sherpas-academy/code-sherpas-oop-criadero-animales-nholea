@@ -17,7 +17,11 @@ class Dog():
              
         
 
+class DogRepository():
+    dogs = []
 
+    def add_new_dog(self,dog):
+        self.dogs.append(dog)
 
 
 

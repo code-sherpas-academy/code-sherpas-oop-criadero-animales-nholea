@@ -1,7 +1,9 @@
-from Models import Dog
+from Models import Dog, DogRepository
 
 def create_dog():
-    dogs = []
+    global dogs 
+
+    dogs = DogRepository()
     name = str(input("Introduzca nombre del perro: "))
     breed = str(input("Introduzca raza del perro: "))
     birthdate = str(input("Introduzca fecha de nacimiento: "))
@@ -10,7 +12,7 @@ def create_dog():
     mother_id = int(
         input("Introduzca identificador de la madre,si no lo conoce introduzca 0: "))
     dog = Dog(name, breed, birthdate, father_id, mother_id)
-    dogs.append(dog)
+    dogs.add_new_dog(dog)
 
 
 def start():
