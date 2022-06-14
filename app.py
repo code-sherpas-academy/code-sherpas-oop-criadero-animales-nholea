@@ -1,4 +1,4 @@
-from Models import Dog, DogRepository, dogs
+from Models import Dog, dogs
 
 def create_dog():
     name = str(input("Introduzca nombre del perro: "))
@@ -12,10 +12,14 @@ def create_dog():
     dogs.append(dog)
 
 
+def show_all_dogs():
+    return [dog.data_summary() for dog in dogs]
+
+
 def start():
     user_choice = input("""¿Qué desea hacer?:
     -Introduzca 1 para crear un nuevo registro de un perro
-    -Introduzca 2 para ...
+    -Introduzca 2 para mostrar listado perros registrados
     -Introduzca 3 para  
     -Introduzca 4 para ...
     -Pulsa ENTER sino quiere hacer nada 
@@ -26,9 +30,12 @@ def start():
         if user_choice == "1":
             create_dog()
 
+        if user_choice == "2":
+            print(show_all_dogs())
+
         user_choice = input("""¿Qué desea hacer?:
     -Introduzca 1 para crear un nuevo registro de un perro
-    -Introduzca 2 para ...
+    -Introduzca 2 para mostrar listado perros registrados
     -Introduzca 3 para ...
     -Introduzca 4 para ...
     -Pulsa ENTER sino quiere hacer nada 
