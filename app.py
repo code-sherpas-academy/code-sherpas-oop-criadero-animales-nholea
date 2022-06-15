@@ -1,4 +1,6 @@
+from pickle import FALSE
 from Models import Dog, dogs
+
 
 def create_dog():
     name = str(input("Introduzca nombre del perro: "))
@@ -8,14 +10,19 @@ def create_dog():
         input("Introduzca identificador del padre, si no lo conoce introduzca 0: "))
     mother_id = int(
         input("Introduzca identificador de la madre,si no lo conoce introduzca 0: "))
-    dog = Dog(name, breed, birthdate, father_id, mother_id)
+    tame = input(
+        "Introduzca True si el perro está entrenado, False en caso contrario: ")
+    dog = Dog(name, breed, birthdate, father_id, mother_id, tame)
     dogs.append(dog)
+
 
 def show_all_dogs():
     return [dog.data_summary() for dog in dogs]
 
+
 def get_single_dog():
-    dog_id = int(input("Introduzca el identificador del perro que desea ver: "))
+    dog_id = int(
+        input("Introduzca el identificador del perro que desea ver: "))
     dog_found = [dog for dog in dogs if dog.id == dog_id]
 
     return dog_found[0].serialize()
