@@ -12,6 +12,11 @@ class Animal():
         self.breed = breed
         self. birthdate = birthdate
 
+    def update(self,name,breed,birthdate):
+        self.name = name,
+        self.breed = breed
+        self.birthdate = birthdate
+
 
 class Dog(Animal):
 
@@ -27,6 +32,12 @@ class Dog(Animal):
 
     def data_summary(self):
         return {"id": self.id, "name": self.name, "father": self.father if self.father > 0 else "", "mother": self.mother if self.mother > 0 else ""}
+
+    def update(self, name, breed, birthdate, father, mother,tame):
+        super().update(name, breed, birthdate)
+        self.father = father
+        self.mother = mother
+        self.tame = tame
 
 
 class Cat(Animal):
@@ -45,6 +56,10 @@ class Cat(Animal):
         return {"id": self.id, "name": self.name, "father": self.father if self.father > 0 else "", "mother": self.mother if self.mother > 0 else ""}
 
 
-
+    def update(self, name, breed, birthdate, father, mother,sociable):
+        super().update(name, breed, birthdate)
+        self.father = father
+        self.mother = mother
+        self.sociable = sociable
 
 animals = []

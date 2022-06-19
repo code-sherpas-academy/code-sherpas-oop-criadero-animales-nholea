@@ -1,4 +1,5 @@
-from Models import Dog, Cat,animals
+from Models import Dog, Cat, animals
+
 
 def create_dog():
     name = str(input("Introduzca nombre del perro: "))
@@ -13,19 +14,22 @@ def create_dog():
     dog = Dog(name, breed, birthdate, father_id, mother_id, tame)
     animals.append(dog)
 
+
 def update_dog():
     dog_id = int(
         input("Introduzca el identificador del perro que desea modificar: "))
     dog_found = [dog for dog in animals if dog.id == dog_id]
-    dog_found[0].name = str(input("Introduzca nombre del perro: "))
-    dog_found[0].breed = str(input("Introduzca raza del perro: "))
-    dog_found[0].birthdate = str(input("Introduzca fecha de nacimiento: "))
-    dog_found[0].father = int(
+    name = str(input("Introduzca nombre del perro: "))
+    breed = str(input("Introduzca raza del perro: "))
+    birthdate = str(input("Introduzca fecha de nacimiento: "))
+    father = int(
         input("Introduzca identificador del padre, si no lo conoce introduzca 0: "))
-    dog_found[0].mother = int(
+    mother = int(
         input("Introduzca identificador de la madre,si no lo conoce introduzca 0: "))
-    dog_found[0].tame = input(
+    tame = input(
         "Introduzca True si el perro está entrenado, False en caso contrario: ")
+    dog_found[0].update(name, breed, birthdate, father, mother, tame)
+
 
 def create_cat():
     name = str(input("Introduzca nombre del gato: "))
@@ -39,6 +43,22 @@ def create_cat():
         "Introduzca un número del 1-5. 1 es «muy poco sociable» y 5 es «muy sociable»: "))
     cat = Cat(name, breed, birthdate, father_id, mother_id, sociable)
     animals.append(cat)
+
+
+def update_cat():
+    cat_id = int(
+        input("Introduzca el identificador del perro que desea modificar: "))
+    cat_found = [cat for cat in animals if cat.id == cat_id]
+    name = str(input("Introduzca nombre del gato: "))
+    breed = str(input("Introduzca raza del gato: "))
+    birthdate = str(input("Introduzca fecha de nacimiento: "))
+    father = int(
+        input("Introduzca identificador del padre, si no lo conoce introduzca 0: "))
+    mother = int(
+        input("Introduzca identificador de la madre,si no lo conoce introduzca 0: "))
+    sociable = int(input(
+        "Introduzca un número del 1-5. 1 es «muy poco sociable» y 5 es «muy sociable»: "))
+    cat_found[0].update(name, breed, birthdate, father, mother, sociable)
 
 
 def show_all_animals():
@@ -59,7 +79,8 @@ def start():
     -Introduzca 2 para mostrar listado animales registrados
     -Introduzca 3 para ver datos de un animal
     -Introduzca 4 para modificar datos de un perro
-    Introduzca 5 para crear un nuevo registro de un gato
+    -Introduzca 5 para crear un nuevo registro de un gato
+    -Introduzca 6 para modificar datos de un gato
     -Pulsa ENTER sino quiere hacer nada 
     """)
 
@@ -79,6 +100,8 @@ def start():
 
         if user_choice == "5":
             create_cat()
+        if user_choice == "6":
+            update_cat()
 
         user_choice = input("""¿Qué desea hacer?:
     -Introduzca 1 para crear un nuevo registro de un perro
@@ -86,6 +109,7 @@ def start():
     -Introduzca 3 para ver datos de un animal
     -Introduzca 4 para para modificar datos de un perro
     -Introduzca 5 para crear un nuevo registro de un gato
+    -Introduzca 6 para modificar datos de un gato
     -Pulsa ENTER sino quiere hacer nada 
     """)
 
