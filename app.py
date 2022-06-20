@@ -73,6 +73,13 @@ def get_single_animal():
     return animal_found[0].serialize()
 
 
+def vaccinate_animal():
+    animal_id = int(
+        input("Introduzca el identificador del animal que desea vacunar: "))
+    animal_found = [animal for animal in animals if animal.id == animal_id]
+    animal_found[0].vaccinate()
+
+
 def start():
     user_choice = input("""¿Qué desea hacer?:
     -Introduzca 1 para crear un nuevo registro de un perro
@@ -81,6 +88,7 @@ def start():
     -Introduzca 4 para modificar datos de un perro
     -Introduzca 5 para crear un nuevo registro de un gato
     -Introduzca 6 para modificar datos de un gato
+    -Introduzca 7 para vacunar a un animal
     -Pulsa ENTER sino quiere hacer nada 
     """)
 
@@ -100,8 +108,12 @@ def start():
 
         if user_choice == "5":
             create_cat()
+
         if user_choice == "6":
             update_cat()
+
+        if user_choice == "7":
+            vaccinate_animal()
 
         user_choice = input("""¿Qué desea hacer?:
     -Introduzca 1 para crear un nuevo registro de un perro
@@ -110,6 +122,7 @@ def start():
     -Introduzca 4 para para modificar datos de un perro
     -Introduzca 5 para crear un nuevo registro de un gato
     -Introduzca 6 para modificar datos de un gato
+    -Introduzca 7 para vacunar a un animal
     -Pulsa ENTER sino quiere hacer nada 
     """)
 
